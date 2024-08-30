@@ -2,6 +2,8 @@ package com.cbx.schedule.dao;
 
 import com.cbx.schedule.pojo.SysSchedule;
 
+import java.util.List;
+
 /**
  * ClassName: SysScheduleDao
  * Package: com.cbx.schedule.dao
@@ -19,4 +21,10 @@ public interface SysScheduleDao {
      * If added successfully, then return a number >0, else means failed.
      */
     int addSchedule(SysSchedule schedule);
+
+    /**
+     * Find all schedules.
+     * @return All data of schedules.
+     */
+    List<SysSchedule> findAllSchedule();
 }
