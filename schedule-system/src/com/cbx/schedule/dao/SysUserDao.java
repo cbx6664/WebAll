@@ -18,4 +18,6 @@ public interface SysUserDao {
      * @return the number of influenced rows
      */
     int addUser(SysUser sysUser);
+
+    SysUser queryByUsername(String username);
 }

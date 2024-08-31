@@ -27,4 +27,9 @@ public class SysUserServiceImpl implements SysUserService {
 
         return rows;
     }
+
+    @Override
+    public SysUser queryByUsername(String username) {
+        return userDao.queryByUsername(username);
+    }
 }

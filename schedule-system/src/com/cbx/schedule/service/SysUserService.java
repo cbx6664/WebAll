@@ -19,8 +19,11 @@ public interface SysUserService {
 
     /**
      * Registers a new user by passing a new sysUser object
+     *
      * @param sysUser
      * @return influenced rows
      */
     int register(SysUser sysUser);
+
+    SysUser queryByUsername(String username);
 }
