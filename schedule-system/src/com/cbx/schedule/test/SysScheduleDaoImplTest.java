@@ -5,10 +5,6 @@ import com.cbx.schedule.pojo.SysSchedule;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.List;
-
-import static org.junit.Assert.*;
-
 /**
  * ClassName: SysScheduleDaoImplTest
  * Package: com.cbx.schedule.test

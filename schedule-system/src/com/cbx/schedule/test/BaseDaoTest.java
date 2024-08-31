@@ -16,7 +16,7 @@ import java.util.List;
  * @Create 29/8/24 18:16
  * @Version 1.0
  */
-public class TestBaseDao {
+public class BaseDaoTest {
     private static BaseDao baseDao;
 
     @BeforeClass
