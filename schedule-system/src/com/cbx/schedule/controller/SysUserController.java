@@ -1,5 +1,7 @@
 package com.cbx.schedule.controller;
 
+import com.cbx.schedule.pojo.SysUser;
+import com.cbx.schedule.service.impl.SysUserServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -24,19 +26,30 @@ import java.io.IOException;
 
 @WebServlet("/user/*")
 public class SysUserController extends BaseController {
-    protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("add");
-    }
+    private SysUserServiceImpl userService = new SysUserServiceImpl();
 
-    protected void remove(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("remove");
-    }
+    /**
+     * Business process method that receives requests of registration
+     *
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void register(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 1 Receives the parameters posted by client
+        String username = req.getParameter("username");
+        String password = req.getParameter("userPwd");
 
-    protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("update");
-    }
+        // 2 Invokes methods offered by Service, completes the process of registration
+        // we can also integrate parameters into an object
+        SysUser sysUser = new SysUser(null, username, password);
+        int rows = userService.register(sysUser);
 
-    protected void query(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("query");
+        // 3 Redirects pages based on the registration results
+        if (rows > 0) {
+            resp.sendRedirect("../registerSucceeded.html");
+        } else resp.sendRedirect("../registerFailed.html");
+
     }
 }

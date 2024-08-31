@@ -10,8 +10,17 @@ package com.cbx.schedule.service;
  * @Version 1.0
  */
 
+import com.cbx.schedule.pojo.SysUser;
+
 /**
  * This interface defines functions surrounding sys_user table.
  */
 public interface SysUserService {
+
+    /**
+     * Registers a new user by passing a new sysUser object
+     * @param sysUser
+     * @return influenced rows
+     */
+    int register(SysUser sysUser);
 }
